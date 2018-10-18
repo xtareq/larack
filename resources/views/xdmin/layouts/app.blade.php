@@ -10,8 +10,7 @@
 
     <title>{{ config('app.name', 'Laravel') }} :: Xdmin</title>
 
-    <!-- Scripts -->
-	<script src="{{ asset('js/app.js') }}" defer></script>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -48,7 +47,11 @@
                             <a class="nav-link" href="{{ route('xdmin.register') }}">{{ __('Register') }}</a>
                         </li>
                     @else
+                    <li class="nav-item">
+                         <a href="{{route('xdmin.posts.index')}}" class="nav-link"> Posts</a>
+                    </li>
                         <li class="nav-item dropdown">
+                       
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::guard('xdmin')->user()->name }} <span class="caret"></span>
                             </a>
@@ -75,5 +78,9 @@
         @yield('content')
     </main>
 </div>
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" ></script>
+
+    @stack('scripts')
 </body>
 </html>

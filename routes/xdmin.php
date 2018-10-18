@@ -4,6 +4,10 @@ Route::group(['namespace' => 'Xdmin'], function() {
 
     Route::get('/', 'HomeController@index')->name('xdmin.dashboard');
 
+    Route::name('xdmin.')->group(function(){
+        Route::resource('/posts','PostController');
+    });
+
     // Login
     Route::get('login', 'Auth\LoginController@showLoginForm')->name('xdmin.login');
     Route::post('login', 'Auth\LoginController@login');
