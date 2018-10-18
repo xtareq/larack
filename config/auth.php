@@ -36,6 +36,11 @@ return [
     */
 
     'guards' => [
+        'xdmin' => [
+            'driver' => 'session',
+            'provider' => 'xdmins',
+        ],
+
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
@@ -65,6 +70,11 @@ return [
     */
 
     'providers' => [
+        'xdmins' => [
+            'driver' => 'eloquent',
+            'model' => App\Xdmin::class,
+        ],
+
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
@@ -92,6 +102,12 @@ return [
     */
 
     'passwords' => [
+        'xdmins' => [
+            'provider' => 'xdmins',
+            'table' => 'xdmin_password_resets',
+            'expire' => 60,
+        ],
+
         'users' => [
             'provider' => 'users',
             'table' => 'password_resets',

@@ -39,7 +39,24 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
+        $this->mapXdminRoutes();
+
         //
+    }
+
+    /**
+     * Define the "xdmin" routes for the application.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+    protected function mapXdminRoutes()
+    {
+        Route::prefix('xdmin')
+             ->middleware(['web'])
+             ->namespace($this->namespace)
+             ->group(base_path('routes/xdmin.php'));
     }
 
     /**

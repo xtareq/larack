@@ -51,6 +51,9 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
+        'xdmin.auth' => \App\Http\Middleware\RedirectIfNotXdmin::class,
+        'xdmin.guest' => \App\Http\Middleware\RedirectIfXdmin::class,
+        // 'xdmin.verified' => \App\Http\Middleware\EnsureXdminEmailIsVerified::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
